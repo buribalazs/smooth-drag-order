@@ -1,7 +1,7 @@
 {
   "name": "@codeandsoda/smooth-drag-order",
-  "version": "1.0.1",
-  "description": "- vertical dragging and reordering only\r - mobile (touch screen) support\r - Emits `change` event on reordering\r - mixed heights are supported\r - uses `MutationObserver` to keep up with children list changes. Will probably break if you change children list while the user is dragging though\r - can be destroyed and reinitialized without event listener stacking or clashing\r - 1.3Kb minified and gzipped\r - features *disgusting™* codestyle",
+  "version": "1.0.2",
+  "description": "reorder a vertical list by dragging and dropping. Smooth animations.",
   "main": "module.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
