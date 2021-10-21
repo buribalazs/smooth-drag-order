@@ -16,6 +16,8 @@
 |-------------------|--------|---------|--------|--------|-----------------|
 | ❌                |✔️      |✔️      |   ✔️   | ✔️     | ✔️             |
 
+Demo: https://codepen.io/buribalazs/pen/NWvReZN
+
 ## How to
 
 This is an ES6 module
