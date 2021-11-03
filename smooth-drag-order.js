@@ -124,7 +124,7 @@ export function smoothDragOrder(container, animationDurationSeconds = 0.2) {
     }
 
     function stop() {
-        if(!document.body.contains(container)){
+        if(container.getRootNode({composed:true}) !== document){
             destroy()
             return
         }

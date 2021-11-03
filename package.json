@@ -1,8 +1,8 @@
 {
   "name": "@codeandsoda/smooth-drag-order",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "reorder a vertical list by dragging and dropping. Smooth animations.",
-  "main": "module.js",
+  "main": "smooth-drag-order.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
