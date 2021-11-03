@@ -24,7 +24,23 @@ This is an ES6 module
 
 Install the package with `npm install @codeandsoda/smooth-drag-order`
 
-considering you have the following markup:
+### type declaration:
+``` typescript
+export function smoothDragOrder(
+    container: HTMLElement, 
+    animationDurationSeconds: number = 0.2, 
+    restoreOriginalNodeList:Boolean = false): { 
+        destroy: () => void 
+    }
+```
+
+|argument|default|description|
+|---|---|---|
+|container| `undefined` | An element containing the draggable cards that all have an element inside them decorated with the `drag-handle` attribute
+|animationDurationSeconds|`0.2` seconds|how long it takes for cards to move out of the way and to put a card back
+|restoreOriginalNodeList|`false`|if `true` the original node list will be restored after a card is dropped. useful for reactive libraries like lit-element where reordering things breaks the rendering.
+
+### considering you have the following markup:
 ```html
 <!DOCTYPE html>
 <html lang="en">

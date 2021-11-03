@@ -70,13 +70,12 @@
     <button id="stopit">stop it</button>
     <button id="startit">start it</button>
 
-    <script src="module.js" type="module"></script>
-
+    <script src="./smooth-drag-order.js" type="module"></script>
     <script type="module">
 
         const container = document.querySelector('.my-draggables')
 
-        import { smoothDragOrder } from './module.js'
+        import { smoothDragOrder } from './smooth-drag-order.js'
         let handle = smoothDragOrder(container, 0.2)
 
         container.addEventListener('change', e => {

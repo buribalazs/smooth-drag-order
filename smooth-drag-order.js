@@ -1,4 +1,4 @@
-export function smoothDragOrder(container, animationDurationSeconds = 0.2) {
+export function smoothDragOrder(container, animationDurationSeconds = 0.2, restoreOriginalNodeList = false) {
 
     if (container.hasAttribute('smooth-drag-sort')) {
         container.__destroySmoothDragOrder()
@@ -98,11 +98,12 @@ export function smoothDragOrder(container, animationDurationSeconds = 0.2) {
         })
     }
 
-
+    let originalBelowEl = null
     function start(el) {
         const y = getY()
         if (puttingItBack || !!target || y === null || draggables.length < 2) return;
         target = el
+        originalBelowEl = container.childNodes[[...container.childNodes].indexOf(el) + 1]
         target.classList.add('dragged')
         startIndex = draggables.indexOf(el)
         const box = getRect(target)
@@ -124,12 +125,11 @@ export function smoothDragOrder(container, animationDurationSeconds = 0.2) {
     }
 
     function stop() {
-        if(container.getRootNode({composed:true}) !== document){
+        if (container.getRootNode({ composed: true }) !== document) {
             destroy()
             return
         }
         if (!target) return
-        if (startIndex !== draggables.indexOf(target)) container.dispatchEvent(new Event('change'))
         target.classList.remove('dragged')
 
 
@@ -148,6 +148,8 @@ export function smoothDragOrder(container, animationDurationSeconds = 0.2) {
             container.style.height = null
             puttingItBack = false
             draggables.forEach(removeAttrFn('style'))
+            if (startIndex !== draggables.indexOf(target)) container.dispatchEvent(new Event('change'))
+            if (restoreOriginalNodeList) container.insertBefore(target, originalBelowEl)
             target = null
         }, animationDurationSeconds * 1000);
 
