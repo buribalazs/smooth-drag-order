@@ -149,7 +149,13 @@ export function smoothDragOrder(container, animationDurationSeconds = 0.2, resto
             puttingItBack = false
             draggables.forEach(removeAttrFn('style'))
             if (startIndex !== draggables.indexOf(target)) container.dispatchEvent(new Event('change'))
-            if (restoreOriginalNodeList) container.insertBefore(target, originalBelowEl)
+            if (restoreOriginalNodeList) {
+                if(originalBelowEl){
+                    container.insertBefore(target, originalBelowEl)
+                }else{
+                    container.appendChild(target)
+                }
+            }
             target = null
         }, animationDurationSeconds * 1000);
 
