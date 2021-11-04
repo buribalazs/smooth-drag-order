@@ -1,6 +1,6 @@
 export function smoothDragOrder(
     container: HTMLElement, 
-    animationDurationSeconds: number = 0.2, 
-    restoreOriginalNodeList:Boolean = false): { 
+    animationDurationSeconds: number, 
+    restoreOriginalNodeList:Boolean): { 
         destroy: () => void 
     }
